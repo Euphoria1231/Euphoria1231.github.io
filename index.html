@@ -1,3 +1,94 @@
-<p>Hello 大家好</p>
-<p>我是Euphoria，这是我的个人网站。 </p>
-<p>很高兴你来到这里</p>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人平台</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#course-schedule">课程安排</a></li>
+                <li><a href="#personal-goals">个人目标</a></li>
+                <li><a href="#cet-countdown">四级倒计时</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="course-schedule">
+            <h2>课程安排</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>课程</th>
+                        <th>地点</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>星期一 9:00 - 11:00</td>
+                        <td>数学分析</td>
+                        <td>教室101</td>
+                    </tr>
+                    <tr>
+                        <td>星期三 13:00 - 15:00</td>
+                        <td>数据结构</td>
+                        <td>教室202</td>
+                    </tr>
+                    <tr>
+                        <td>星期五 10:00 - 12:00</td>
+                        <td>物理实验</td>
+                        <td>实验室301</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="personal-goals">
+            <h2>个人目标</h2>
+            <ul>
+                <li>完成数据结构课程的所有作业</li>
+                <li>每天练习英语口语30分钟</li>
+                <li>每周阅读一本书</li>
+            </ul>
+        </section>
+
+        <section id="cet-countdown">
+            <h2>四级倒计时</h2>
+            <div id="countdown"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 个人平台</p>
+    </footer>
+
+    <script>
+        // 四级倒计时脚本
+        const cetDate = new Date("2024-12-15T00:00:00");
+        const countdownElement = document.getElementById('countdown');
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = cetDate - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+
+            if (diff < 0) {
+                countdownElement.innerHTML = "考试已经结束";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>

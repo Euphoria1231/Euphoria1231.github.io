@@ -3,20 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>原神，启动</title>
     <style>
-        img {
-            position: absolute;
-            left: 600px;
-            top: 300px;
-            animation: Genshin 2700ms linear infinite normal;
-        }
-
-        img:hover {
-            animation-play-state: paused;
-        }
-
         @keyframes Genshin {
             0% {
                 opacity: 0;
@@ -36,6 +25,28 @@
 
             100% {
                 opacity: 1;
+            }
+        }
+
+        @media screen and (max-width:768px) {
+            img {
+                position: absolute;
+                left: 300px;
+                top: 300px;
+                animation: Genshin 2700ms linear infinite normal;
+            }
+        }
+
+        @media screen and (min-width:768px) {
+            img {
+                position: absolute;
+                left: 600px;
+                top: 300px;
+                animation: Genshin 2700ms linear infinite normal;
+            }
+
+            img:hover {
+                animation-play-state: paused;
             }
         }
     </style>
